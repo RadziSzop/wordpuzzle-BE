@@ -9,7 +9,7 @@ export const game = async (req: Request, res: Response) => {
   let correctWords: string[] = [];
   do {
     const letters = getRandomLetters(9);
-    const combinations = getCombinations("sampling");
+    const combinations = getCombinations(letters);
     correctWords = getCorrectWords(enWords, combinations);
   } while (correctWords.length <= 20);
   return res.json({ data: { words: correctWords } });
