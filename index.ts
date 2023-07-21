@@ -8,10 +8,7 @@ import { StatusCodes } from "http-status-codes";
 import { wordRouter } from "./src/routes/api";
 
 const dotenvConfig = dotenv.config();
-if (dotenvConfig.error) {
-  throw dotenvConfig.error;
-}
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 const app = express();
 
 // Middleware
