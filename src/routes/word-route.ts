@@ -7,10 +7,13 @@ const enWords = new Set<string>(enJson);
 
 export const game = async (req: Request, res: Response) => {
   let correctWords: string[] = [];
+  let letters: string;
   do {
-    const letters = getRandomLetters(9);
+    letters = getRandomLetters(8);
     const combinations = getCombinations(letters);
     correctWords = getCorrectWords(enWords, combinations);
   } while (correctWords.length <= 20);
-  return res.json({ data: { words: correctWords } });
+  return res.json({
+    data: { words: correctWords, letters: letters.split("") },
+  });
 };
