@@ -1,4 +1,5 @@
 import { Router } from "express";
-import { game } from "./word-route";
+import { definition, game } from "./word-route";
 export const wordRouter = Router();
 wordRouter.get("/", game);
+wordRouter.get("/definition/:word", definition);
